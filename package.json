@@ -1,0 +1,19 @@
+{
+  "name": "coursera-node-exam",
+  "version": "1.0.0",
+  "description": "This is an exam solution for the developing backend apps with Node.js and Express course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EngZena/coursera-node-exam.git"
+  },
+  "author": "EngZena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EngZena/coursera-node-exam/issues"
+  },
+  "homepage": "https://github.com/EngZena/coursera-node-exam#readme"
+}
