@@ -2,9 +2,13 @@
   "name": "coursera-node-exam",
   "version": "1.0.0",
   "description": "This is an exam solution for the developing backend apps with Node.js and Express course.",
+  "engines": {
+    "node": ">=12"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "start": "nodemon --exec babel-node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/EngZena/coursera-node-exam/issues"
   },
-  "homepage": "https://github.com/EngZena/coursera-node-exam#readme"
+  "homepage": "https://github.com/EngZena/coursera-node-exam#readme",
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
 }
