@@ -2,6 +2,9 @@
   "name": "coursera-node-exam",
   "version": "1.0.0",
   "description": "This is an exam solution for the developing backend apps with Node.js and Express course.",
+  "engines": {
+    "node": ">=12"
+  },
   "main": "index.js",
   "scripts": {
     "test": "npm run test"
