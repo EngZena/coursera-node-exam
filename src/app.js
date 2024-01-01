@@ -1,6 +1,8 @@
 import config from "config";
 import morgan from "morgan";
 import express from "express";
+import AppError from './utils/appError';
+import bookRouter from './routes/booksRoutes';
 
 const app = express();
 /**
@@ -10,4 +12,10 @@ if (config.get("NODE_ENV") === "development") {
   app.use(morgan("dev"));
 }
 
+app.use(express.json({ limit: '50mb' }));
+
+app.use('/api/library/v1/books', bookRouter);
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+});
 module.exports = app; 
