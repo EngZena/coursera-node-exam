@@ -3,6 +3,12 @@ import mongoose from 'mongoose';
 
 import app from './src/app';
 import C from './src/utils/log';
+import dotenv from 'dotenv';
+
+/**
+ * dotenv is a zero-dependency module that loads environment variables from a config.env file into process.env
+ */
+dotenv.config({ path: './config.env' });
 
 /**
  * uncaughtException means no code was looking for that exception
