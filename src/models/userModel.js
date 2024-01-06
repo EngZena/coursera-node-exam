@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs';
-import crypto from 'crypto';
 import mongoose from 'mongoose';
 import validator from 'validator';
 
@@ -14,11 +13,6 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
-  },
-  role: {
-    type: String,
-    enum: ['admin', 'customer'],
-    default: 'customer',
   },
   password: {
     type: String,
