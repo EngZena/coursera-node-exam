@@ -32,13 +32,12 @@ const createAndSendToken = (user, statusCode, res) => {
   });
 };
 
-export const signup = catchAsync(async (req, res, next) => {
+export const signUp = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.password,
-    role: req.body.role,
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
   createAndSendToken(newUser, 201, res);
@@ -97,17 +96,3 @@ export const protect = catchAsync(async (req, res, next) => {
   res.locals.user = freshUser;
   next();
 });
-
-export const restrictTo =
-  (...roles) =>
-  (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
-      return next(
-        new AppError(
-          'You do not have the permission to perform this action',
-          403
-        )
-      );
-    }
-    next();
-  };
