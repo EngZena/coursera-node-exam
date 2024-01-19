@@ -1,6 +1,8 @@
 import axios from "axios";
 
-// Task 10: Get all books – Using async callback function – 2 Points
+import * as Factory from "./handlerFactory";
+import Book from "../models/bookModel";
+
 export const getAllBooksUsingAsyncCallbackFunction = async (req, res, next) => {
   const response = await axios.get(
     `${process.env.HOST_URL}/api/library/v1/books`
@@ -15,3 +17,7 @@ export const getAllBooksUsingAsyncCallbackFunction = async (req, res, next) => {
     },
   });
 };
+
+export const getBookByISBN = Factory.getOneByProperty(Book, null, "ISBN");
+export const getBookByAuthor = Factory.getOneByProperty(Book, null, "author");
+export const getBookByTitle = Factory.getOneByProperty(Book, null, "title");
