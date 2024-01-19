@@ -4,6 +4,7 @@ import express from "express";
 import AppError from './utils/appError';
 import bookRouter from './routes/booksRoutes';
 import userRouter from './routes/userRoutes';
+import reviewRouter from './routes/reviewRoutes';
 
 const app = express();
 /**
@@ -20,6 +21,7 @@ app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/library/v1/users', userRouter);
 app.use('/api/library/v1/books', bookRouter);
+app.use('/api/v1/reviews', reviewRouter);
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 });
