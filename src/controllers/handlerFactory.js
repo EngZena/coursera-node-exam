@@ -29,6 +29,24 @@ export const getOne = (Model, popOptions) =>
     });
   });
 
+export const getOneByProperty = (Model, popOptions, property) =>
+  catchAsync(async (req, res, next) => {
+    const propertyName = property;
+    // Generic way to get data
+    let query = Model.findOne({ [propertyName]: req.params.id });
+    if (popOptions) query = query.populate(popOptions);
+    const document = await query;
+    if (!document) {
+      return next(new AppError("No doc found with that ID", 404));
+    }
+    res.status(200).json({
+      status: "success",
+      data: {
+        data: document,
+      },
+    });
+  });
+
 export const getAll = (Model) =>
   catchAsync(async (req, res, next) => {
     let filter = {};
