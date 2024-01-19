@@ -5,8 +5,6 @@ import * as authController from "../controllers/authController";
 
 const router = express.Router({ mergeParams: true });
 
-router.use(authController.protect);
-
 // Task 10: Get all books – Using async callback function – 2 Points
 router
   .route("/books")
