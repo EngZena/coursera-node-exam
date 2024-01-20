@@ -9,8 +9,8 @@ export const getBook = Factory.getOne(Book);
 export const getAllBooks = Factory.getAll(Book);
 export const deleteBook = Factory.deleteOne(Book);
 
-export const getBookByISBN  = catchAsync(async (req, res, next) => {
-    let book = await Book.findOne({ ISBN: req.params.id });
+export const getAllBookByISBN  = catchAsync(async (req, res, next) => {
+    let book = await Book.find({ ISBN: req.params.id });
     if (!book) {
       return next(new AppError("No book found with that ISBN", 404));
     }
@@ -22,8 +22,8 @@ export const getBookByISBN  = catchAsync(async (req, res, next) => {
     });
   });
 
-export const getBookByAuthor  = catchAsync(async (req, res, next) => {
-    let book = await Book.findOne({ author: req.params.id });
+export const getAllBookByAuthor  = catchAsync(async (req, res, next) => {
+    let book = await Book.find({ author: req.params.id });
     if (!book) {
       return next(new AppError("No book found with that Author", 404));
     }
@@ -35,8 +35,8 @@ export const getBookByAuthor  = catchAsync(async (req, res, next) => {
     });
   });
 
-  export const getBookByTitle  = catchAsync(async (req, res, next) => {
-    let book = await Book.findOne({ title: req.params.id });
+  export const getAllBookByTitle  = catchAsync(async (req, res, next) => {
+    let book = await Book.find({ title: req.params.id });
     if (!book) {
       return next(new AppError("No book found with that Title", 404));
     }
