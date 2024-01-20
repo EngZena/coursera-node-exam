@@ -7,13 +7,13 @@ const router = express.Router();
 router.route("/").get(bookController.getAllBooks);
 
 // Task 2
-router.route("/ISBN/:id").get(bookController.getBookByISBN);
+router.route("/ISBN/:id").get(bookController.getAllBookByISBN);
 
 // Task 3
-router.route("/author/:id").get(bookController.getBookByAuthor);
+router.route("/author/:id").get(bookController.getAllBookByAuthor);
 
 // Task 4
-router.route("/title/:id").get(bookController.getBookByTitle);
+router.route("/title/:id").get(bookController.getAllBookByTitle);
 
 // Task 5
 router.route("/review/title/:id").get(bookController.getBookReviewByTitle);
